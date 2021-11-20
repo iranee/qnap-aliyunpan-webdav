@@ -1,7 +1,7 @@
 # Aliyunpan Webdav for QNAP
 
 ## 介绍
-本项目来源于：[https://github.com/LinkLeong/go-aliyundrive-webdav](https://github.com/LinkLeong/go-aliyundrive-webdav)
+本项目来源于：https://github.com/LinkLeong/go-aliyundrive-webdav
 
 通过Go语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
 
