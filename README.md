@@ -1,9 +1,9 @@
 # Aliyunpan Webdav for QNAP
 
 ## 介绍
-本项目来源于：https://github.com/LinkLeong/go-aliyundrive-webdav
+本项目来源于：[https://github.com/LinkLeong/go-aliyundrive-webdav](https://github.com/LinkLeong/go-aliyundrive-webdav)
 
-通过go语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
+通过Go语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
 
 ## 如何使用
 在QNAP系统，通过App Center手动安装 ***.qpkg*** 后辍程序。
@@ -12,7 +12,7 @@
 
 | 客户端        | 下载   |  上传  |  备注  |
 | --------   | --------  | --------  |--------  |
-|威联通 文件总管	|  不可用	 | 不可用	| 等待作者修BUG注  |
+|威联通 文件总管	|  暂不可用	 | 暂不可用	| 等待作者修BUG注  |
 | Rclone	| 可用	|  可用 | 推荐| 支持各个系统注  |
 | Mac原生	| 可用	|  可用 | 适配有问题，| 不建议使用注  |
 | Windows原生	| 可用	| 有点小问题	| 不建议，适配有点问题，上传报错注  |
@@ -20,7 +20,14 @@
 
 
 ## 配置示意图
- ![配置图示](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/show.jpg)
+ 
+ ![配置图示1](https://cheen.cn/wp-content/uploads/2021/09/AppCenter.jpg)
+ 
+ ![配置图示2](https://cheen.cn/wp-content/uploads/2021/09/get.jpg)
+  
+ ![配置图示3](https://cheen.cn/wp-content/uploads/2021/09/yes.jpg)
+ 
+  ![配置图示4](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/show.jpg)
  
 ## 注意事项
 在配置页面修改内容后，10-20秒后配置文件才能生效。
