@@ -18,6 +18,9 @@
 | Windows原生	| 可用	| 有点小问题	| 不建议，适配有点问题，上传报错注  |
 | RaiDrive	| 可用	| 可用	| Windows平台下建议用这个注  |
 
+## 如何获取Token
+
+ ![配置图示1](https://cheen.cn/wp-content/uploads/2021/09/gettoken.gif)
 
 ## 配置示意图
  
