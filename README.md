@@ -19,11 +19,9 @@
 | RaiDrive	| 可用	| 可用	| Windows平台下建议用这个注  |
 
 ## 如何获取Token
-
  ![配置图示1](https://cheen.cn/wp-content/uploads/2021/09/gettoken.gif)
 
-## 配置示意图
- 
+## 配置示意图 
  ![配置图示1](https://cheen.cn/wp-content/uploads/2021/09/AppCenter.jpg)
  
  ![配置图示2](https://cheen.cn/wp-content/uploads/2021/09/get.jpg)
@@ -31,7 +29,7 @@
  ![配置图示3](https://cheen.cn/wp-content/uploads/2021/09/yes.jpg)
  
   ![配置图示4](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/show.jpg)
- 
+  
 ## 注意事项
 在配置页面修改内容后，10-20秒后配置文件才能生效。
 
