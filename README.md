@@ -17,5 +17,6 @@
 | Windows原生	| 可用	| 有点小问题	| 不建议，适配有点问题，上传报错注  |
 | RaiDrive	| 可用	| 可用	| Windows平台下建议用这个注  |
 
+## 配置示意图
  ![配置图示](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/show.jpg)
 
