@@ -1,0 +1,23 @@
+#!/bin/sh
+CONF=/etc/config/qpkg.conf
+QPKG_NAME="aliyunpan"
+QPKG_ROOT=`/sbin/getcfg $QPKG_NAME Install_Path -f ${CONF}`
+
+sleep 5
+while true ; do
+		pid=$(pidof "aliyunpan")
+		token=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.token')
+		port=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.port')
+		user=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.user')
+		pwd=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.pwd')
+
+  if [[ -n "$pid" ]];then
+		new="aliyunpan -rt $token -port $port -user $user -pwd $pwd"
+		run=$(ps | grep `pidof aliyunpan` | awk -F'/|-wd' '{print $2}' | awk 'gsub(/^ *| *$/,"")')
+        if [[ "$run" != "$new" ]];then 
+			
+			killall aliyunpan
+         fi
+  fi
+  sleep 20
+done
