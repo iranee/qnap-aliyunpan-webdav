@@ -8,31 +8,32 @@
 ## Next Version
 - [ ] 升级版本为 ≧ v1.0.19 
 - [ ] 增加Token失效时提醒并推送
-- [ ] 介绍配置推送通知(iOS端Bark App)
+- [ ] 介绍配置推送通知（iOS端Bark App）
 
 ## 如何使用
 在QNAP系统，通过App Center手动安装 ***.qpkg*** 后辍程序。
 
 * 支持x86构架的QNAP存储设备
+
 | 客户端        | 下载   |  上传  |  备注  |
 | --------   | --------  | --------  |--------  |
-|威联通 文件总管	|  暂不可用	 | 暂不可用	| 等待作者修BUG注  |
-| Rclone	| 可用	|  可用 | 推荐| 支持各个系统注  |
-| Mac原生	| 可用	|  可用 | 适配有问题，| 不建议使用注  |
-| Windows原生	| 可用	| 有点小问题	| 不建议，适配有点问题，上传报错注  |
-| RaiDrive	| 可用	| 可用	| Windows平台下建议用这个注  |
+|威联通 文件总管	|  暂不可用	 | 暂不可用	| 等待作者修BUG  |
+| Rclone	| 可用	|  可用 | 推荐| 支持各个系统  |
+| Mac原生	| 可用	|  可用 | 适配有问题 | 不建议使用  |
+| Windows原生	| 可用	| 有点小问题	| 不建议，适配有点问题，上传报错  |
+| RaiDrive	| 可用	| 可用	| Windows平台下建议用这个  |
 
 ## 如何获取Token
- ![配置图示1](https://cheen.cn/wp-content/uploads/2021/09/gettoken.gif)
+ ![配置图示1](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/gettoken.gif)
 
 ## 配置示意图 
- ![配置图示1](https://cheen.cn/wp-content/uploads/2021/09/AppCenter.jpg)
+ ![配置图示1](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/AppCenter.jpg)
  
- ![配置图示2](https://cheen.cn/wp-content/uploads/2021/09/get.jpg)
+ ![配置图示2](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/get.jpg)
   
- ![配置图示3](https://cheen.cn/wp-content/uploads/2021/09/yes.jpg)
+ ![配置图示3](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/yes.jpg)
  
-  ![配置图示4](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/show.jpg)
+  ![配置图示4](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ruing.jpg)
   
 ## 注意事项
 在配置页面修改内容后，10-20秒后配置文件才能生效。
