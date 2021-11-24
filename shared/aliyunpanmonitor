@@ -1,0 +1,28 @@
+#!/bin/sh
+CONF=/etc/config/qpkg.conf
+QPKG_NAME="aliyunpan"
+QPKG_ROOT=`/sbin/getcfg $QPKG_NAME Install_Path -f ${CONF}`
+
+#killall aliyunpanconfig > /dev/null 2>&1
+#./aliyunpanconfig >&1 & 
+
+echo "aliyunpan version is:"
+./aliyundrive-webdav -V
+
+while true ; do
+  if ! pidof "aliyundrive-webdav" > /dev/null ; then
+
+		token=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.token')
+		port=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.port')
+		user=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.user')
+		pwd=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.pwd')
+  
+    echo `date '+%T'` "aliyunpan try running"
+
+    ./aliyundrive-webdav -p $port -U $user -W $pwd -r $token | tee $QPKG_ROOT/configs/log.txt
+
+  fi
+  echo `date '+%T'` "sleep 15s"
+  sleep 15
+
+done
