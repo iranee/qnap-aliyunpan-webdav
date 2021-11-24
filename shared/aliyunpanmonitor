@@ -3,8 +3,8 @@ CONF=/etc/config/qpkg.conf
 QPKG_NAME="aliyunpan"
 QPKG_ROOT=`/sbin/getcfg $QPKG_NAME Install_Path -f ${CONF}`
 
-#killall aliyunpanconfig > /dev/null 2>&1
-#./aliyunpanconfig >&1 & 
+killall aliyunpanconfig > /dev/null 2>&1
+./aliyunpanconfig >&1 & 
 
 echo "aliyunpan version is:"
 ./aliyundrive-webdav -V
@@ -19,10 +19,10 @@ while true ; do
   
     echo `date '+%T'` "aliyunpan try running"
 
-    ./aliyundrive-webdav -p $port -U $user -W $pwd -r $token | tee $QPKG_ROOT/configs/log.txt
+	./aliyundrive-webdav -p $port -U $user -W $pwd -r $token | tee $QPKG_ROOT/configs/log.txt
+
 
   fi
-  echo `date '+%T'` "sleep 15s"
+# echo `date '+%T'` "sleep 15s"
   sleep 15
-
 done

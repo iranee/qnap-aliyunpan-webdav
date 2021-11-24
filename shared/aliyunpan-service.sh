@@ -34,9 +34,9 @@ cd $QPKG_ROOT
     ;;
 
   stop)
-    killall aliyunpanmonitor
+	killall aliyunpanmonitor
 	killall aliyunpanconfig
-    killall aliyundrive-webdav
+	killall aliyundrive-webdav
 	rm -rf $APACHE_ROOT/$QPKG_NAME
 
     ;;

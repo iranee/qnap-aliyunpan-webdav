@@ -6,31 +6,34 @@ QPKG_ROOT=`/sbin/getcfg $QPKG_NAME Install_Path -f ${CONF}`
 sleep 5
 while true ; do
 
+        #send=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.send')
+		#day=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.day')
 		pid=$(pidof "aliyundrive-webdav")
 		token=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.token')
 		port=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.port')
 		user=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.user')
 		pwd=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.pwd')
-		day=""
 		
   if [[ -n "$pid" ]];then
 		new="aliyundrive-webdav -p $port -U $user -W $pwd -r $token"
 		run=$(ps | grep `pidof aliyundrive-webdav` | awk -F'/|-wd' '{print $2}' | awk 'gsub(/^ *| *$/,"")')
         if [[ "$run" != "$new" ]];then 
-			echo "killall aliyunpan..."	
+			echo "killall aliyundrive-webdav..."	
 			killall aliyundrive-webdav
          fi
   fi
 
-
-  if [[ -z "$pid" ]] && [[ "$(grep -c "failed" $QPKG_ROOT/configs/log.txt)" == "1" ]]; then
+  if [[ "$send" == "0" ]] && [[ "$(grep -c "failed" $QPKG_ROOT/configs/log.txt)" == "1" ]]; then
 			echo "send Notification"
-            #curl -s -k "https://api.day.app/$day/阿里云盘 Webdav/阿里云盘Token已过期，请更新！?icon=https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ico.jpg" > /dev/null
             #/sbin/log_tool  -t1 -uSystem -p127.0.0.1 -mlocalhost -a "[阿里云盘Webdav]  阿里云盘Token已过期，请更新！"
             #echo $(jq -c .send=1 $QPKG_ROOT/configs/aliyunpan-config.json)>$QPKG_ROOT/configs/aliyunpan-config.json
+            if [[ -n "$day" ]]; then
+            echo "send Bark Notification"
+            #curl -s -k "https://api.day.app/$day/阿里云盘 Webdav/阿里云盘Token已过期，请更新！?icon=https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ico.jpg" > /dev/null
+            fi
   fi
 
-  echo "sleep 20"
+  #echo "sleep 20"
   sleep 20
   
 done
