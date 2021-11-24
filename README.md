@@ -1,12 +1,13 @@
 # Aliyunpan Webdav for QNAP
 
 ## 介绍
-本项目来源于：https://github.com/LinkLeong/go-aliyundrive-webdav
+本项目来源于：https://github.com/messense/aliyundrive-webdav
 
-通过Go语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
+通过Rust 语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
 
 ## Next Version
-- [ ] 升级版本为 ≧ v1.0.19 
+- [x] 更换内核版本为Rust 语言，版本从V1.0.0开始
+- [x] 此版本可以挂载威联通文件总管 
 - [ ] 增加Token失效时提醒并推送
 - [ ] 介绍配置推送通知（iOS端Bark App）
 
@@ -17,7 +18,7 @@
 
 | 客户端        | 下载   |  上传  |  备注  |
 | --------   | --------  | --------  |--------  |
-|威联通 文件总管	|  暂不可用	 | 暂不可用	| 等待作者修BUG  |
+|威联通 文件总管	|  可用	 | 可用	| 可用  |
 | Rclone	| 可用	|  可用 | 推荐| 支持各个系统  |
 | Mac原生	| 可用	|  可用 | 适配有问题 | 不建议使用  |
 | Windows原生	| 可用	| 有点小问题	| 不建议，适配有点问题，上传报错  |
@@ -36,7 +37,7 @@
   ![配置图示4](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ruing.jpg)
   
 ## 注意事项
-在配置页面修改内容后，10-20秒后配置文件才能生效。
+在配置页面修改内容后，10-30秒后配置文件才能生效。
 
 ## 本软件为免费开源项目，无任何形式的盈利行为。
  1. 本软件为免费开源项目，无任何形式的盈利行为。
