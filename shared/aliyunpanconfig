@@ -29,7 +29,7 @@ while true ; do
             #echo $(jq -c .send=1 $QPKG_ROOT/configs/aliyunpan-config.json)>$QPKG_ROOT/configs/aliyunpan-config.json
             if [[ -n "$day" ]]; then
             echo "send Bark Notification"
-            #curl -s -k "https://api.day.app/$day/阿里云盘 Webdav/阿里云盘Token已过期，请更新！?icon=https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ico.jpg" > /dev/null
+            #curl -s -k "https://api.day.app/$day/阿里云盘 Webdav/阿里云盘Token已过期，请更新！?icon=https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ico.jpg"
             fi
   fi
 

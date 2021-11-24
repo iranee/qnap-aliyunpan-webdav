@@ -19,7 +19,7 @@ while true ; do
   
     echo `date '+%T'` "aliyunpan try running"
 
-./aliyundrive-webdav -p $port -U $user -W $pwd -r $token | tee $QPKG_ROOT/configs/log.txt
+	./aliyundrive-webdav -p $port -U $user -W $pwd -r $token | tee $QPKG_ROOT/configs/log.txt
 
 
   fi
