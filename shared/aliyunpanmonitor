@@ -10,19 +10,23 @@ echo "aliyunpan version is:"
 ./aliyundrive-webdav -V
 
 while true ; do
-  if ! pidof "aliyundrive-webdav" > /dev/null ; then
 
-		token=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.token')
+pid=$(pidof "aliyundrive-webdav")
+token=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.token')
+send=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.send')
+  if [[ -z "$pid" ]] && [[ -n "$token" ]] && [[ "$send" == "0" ]]; then
+
 		port=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.port')
 		user=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.user')
 		pwd=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.pwd')
+		cache_size=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.cache_size')
+		rb_size=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.rb_size')
   
     echo `date '+%T'` "aliyunpan try running"
 
-	./aliyundrive-webdav -p $port -U $user -W $pwd -r $token | tee $QPKG_ROOT/configs/log.txt
-
+	./aliyundrive-webdav -I -p $port -U $user -W $pwd -r $token -S $rb_size --cache-size $cache_size | tee $QPKG_ROOT/configs/log.txt
 
   fi
-# echo `date '+%T'` "sleep 15s"
-  sleep 15
+  echo `date '+%T'` "sleep 20s"
+  sleep 20
 done
