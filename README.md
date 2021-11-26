@@ -38,7 +38,7 @@
   
  ![配置图示3](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/yes.jpg)
  
-  ![配置图示4](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ruing.jpg)
+  ![配置图示4](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/New%20UI.jpg)
   
 ## 注意事项
 在配置页面修改内容后，10-30秒后配置文件才能生效。
