@@ -6,10 +6,10 @@ QPKG_ROOT=`/sbin/getcfg $QPKG_NAME Install_Path -f ${CONF}`
 sleep 5
 while true ; do
 
-		pid=$(pidof "aliyundrive-webdav")
+	pid=$(pidof "aliyundrive-webdav")
         change=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.change')
         send=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.send')
-		bark=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.bark')
+	bark=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.bark')
 
   if [[ -n "$pid" ]] && [[ "$change" == "1" ]]; then
 			echo "killall aliyundrive-webdav..."	
