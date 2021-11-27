@@ -14,8 +14,8 @@ export SHELL=/bin/sh
 export DESC=$QPKG_NAME
 
 if [ `/sbin/getcfg "QWEB" "Enable" -d 1` = 0 ]; then
-  echo "Web服务器尚未启用"
-  /sbin/log_tool  -t1 -uSystem -p127.0.0.1 -mlocalhost -a "[阿里云盘 Webdav] Web服务器尚未启用，请在控制面板中开启Web服务。"
+  echo "Web服务器尚未启用，请前往[控制台]→[应用程序]→[Web服务器]开启"
+  /sbin/log_tool  -N "Web服务器" -G "状态" -t1 -uSystem -p127.0.0.1 -mlocalhost -a "[阿里云盘] Web服务尚未启用，请前往[控制台]→[应用程序]→[Web服务器]开启。"
 fi
 
 case "$1" in
