@@ -5,11 +5,12 @@
 
 通过Rust 语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
 
-## Next Version
+## update
 - [x] 更换内核版本为Rust 语言，版本从V1.0.0开始
 - [x] 此版本可以挂载威联通文件总管 
-- [x] 增加Token失效时提醒并推送
 - [x] Webdav服务更多配置选项
+- [x] 增加 Token 失效时，QNAP 管理界面通知
+- [x] [增加 Bark App 推送（iOS , Android, Windows 跨平台）](https://github.com/Finb/Bark)
 - [ ] 介绍配置推送通知（iOS端Bark App）
 
 ## 如何使用
