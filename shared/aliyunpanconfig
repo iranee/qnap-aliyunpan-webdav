@@ -6,25 +6,25 @@ QPKG_ROOT=`/sbin/getcfg $QPKG_NAME Install_Path -f ${CONF}`
 sleep 5
 while true ; do
 
-	pid=$(pidof "aliyundrive-webdav")
-        change=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.change')
-        send=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.send')
-	bark=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.bark')
+		pid=$(pidof "aliyundrive-webdav")
+		change=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.change')
+		send=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.send')
+		bark=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.bark')
 
   if [[ -n "$pid" ]] && [[ "$change" == "1" ]]; then
 			echo "killall aliyundrive-webdav..."	
-			killall aliyundrive-webdav
+			killall -9 aliyundrive-webdav > /dev/null 2>&1
 			echo $(jq -c .change='"0"' $QPKG_ROOT/configs/aliyunpan-config.json)>$QPKG_ROOT/configs/aliyunpan-config.json
   fi
 
   if [[ "$send" == "0" ]] && [[ "$(grep -c "refresh token failed" $QPKG_ROOT/configs/log.txt)" == "1" ]]; then
 			echo "send system Notification"
-            /sbin/log_tool -N "阿里云盘" -G "Check token" -t1 -uSystem -p127.0.0.1 -mlocalhost -a "[阿里云盘Webdav]   阿里云盘Token已过期，请更新！"
+            /sbin/log_tool -N "阿里云盘" -G "Check token" -t1 -uSystem -p127.0.0.1 -mlocalhost -a "[阿里云盘] 阿里云盘Refresh Token已过期，请更新！"
             echo $(jq -c .send='"1"' $QPKG_ROOT/configs/aliyunpan-config.json)>$QPKG_ROOT/configs/aliyunpan-config.json
 			echo "" >$QPKG_ROOT/configs/log.txt
             if [[ -n "$bark" ]]; then
             echo "send Bark Notification"
-            curl -s -k "https://api.day.app/$bark/阿里云盘 Webdav/阿里云盘Refresh Token已过期，请更新！?icon=https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ico.jpg"
+            curl -s -k "https://api.day.app/$bark/阿里云盘 Webdav/阿里云盘 Refresh Token 已过期，请更新！?icon=https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ico.jpg"
             fi
   fi
 
