@@ -32,7 +32,7 @@ cd $QPKG_ROOT
   stop)
 	killall -9 aliyunpanmonitor
 	killall -9 aliyunpanconfig
-	killall -9 c
+	killall -9 aliyundrive-webdav
 	rm -rf $APACHE_ROOT/aliyunpan
 
 	;;
