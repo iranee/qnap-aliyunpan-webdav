@@ -1,9 +1,18 @@
 # Aliyunpan Webdav for QNAP
 
 ## 介绍
-本项目来源于：https://github.com/messense/aliyundrive-webdav
+Rust版来源于：https://github.com/messense/aliyundrive-webdav
+Go版来源：https://github.com/LinkLeong/go-aliyundrive-webdav
 
-通过Rust 语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
+通过 Rust/Go 语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
+
+## 已知问题
+* Rust版本v1.0.09被QNAP杀毒软件误报，暂更换为Go语言版本v1.0.10
+* 没有做文件sha1校验，不保证上传文件的100%准确性（一般场景下，是没问题的）
+* 通过文件名和文件大小判断是否重复。也就是说如果一个文件即使发生了更新，但其大小没有任何改变，是不会自动上传的
+* 不支持文件名包含 / 字符
+* 部分客户端兼容性不好
+* 单列表最大文件数为200 （QNAP文件总管挂载测试可以显示更多数量）
 
 ## update
 - [x] 更换内核版本为Rust 语言，版本从V1.0.0开始
