@@ -3,8 +3,8 @@
 ## 介绍
 通过 Rust/Go 语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
 
-* Rust版来源于：https://github.com/messense/aliyundrive-webdav
-* Go版来源：https://github.com/LinkLeong/go-aliyundrive-webdav
+* Rust 版开源：https://github.com/messense/aliyundrive-webdav
+* Go 版开源：https://github.com/LinkLeong/go-aliyundrive-webdav
 
 ## Go版已知问题
 * Rust版本v1.0.09被QNAP杀毒软件误报，暂更换为Go语言版本v1.0.10
