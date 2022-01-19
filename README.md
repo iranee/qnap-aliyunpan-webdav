@@ -1,4 +1,5 @@
 # Aliyunpan Webdav for QNAP
+![Release](https://img.shields.io/github/v/release/iranee/qnap-aliyunpan-webdav?color=2&label=Releases)
 
 ## 介绍
 通过 Rust/Go 语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
