@@ -8,7 +8,7 @@
 * Go 版开源：https://github.com/LinkLeong/go-aliyundrive-webdav
 
 ## 升级提示
-- v1.0.10 正常使用的话，可以不用升级v1.0.12
+- 旧版本正常使用的话，可以不用升级v1.0.12
 - v1.0.12只是为了兼容armv5的系统
 - 分身版：如果想2个账号同时登录，可以再次安装s_开头的App
 
