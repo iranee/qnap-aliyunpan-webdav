@@ -11,6 +11,8 @@
 - 旧版本正常使用的话，可以不用升级v1.0.12
 - v1.0.12只是为了兼容armv5的系统
 - 分身版：如果想2个账号同时登录，可以再次安装s_开头的App
+> ARM版因为权限问题，安装过后要手动给安装目录0777权限，可以用winscp设置，也可以用PuTTy来执行代码：<br>
+>```chmod -Rf 777 $(/sbin/getcfg aliyunpan Install_Path -f /etc/config/qpkg.conf)/*.*```
 
 ## Go版已知问题
 * Rust版本v1.0.09被QNAP杀毒软件误报，暂更换为Go语言版本v1.0.10
