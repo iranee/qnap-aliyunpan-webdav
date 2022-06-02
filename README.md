@@ -56,7 +56,7 @@
   
  ![配置图示3](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/yes.jpg)
  
-  ![配置图示4](https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/New%20UI.jpg)
+  ![配置图示4]([https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/New%20UI.jpg](https://cheen.cn/wp-content/uploads/2021/09/New-UI.jpg))
   
 ## 注意事项
 - 建议安装前，去威联通的管理页面打开web服务，位置在：控制台→应用程序→web服务器
