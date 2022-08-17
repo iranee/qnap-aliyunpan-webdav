@@ -8,7 +8,9 @@
 * Go 版开源：https://github.com/LinkLeong/go-aliyundrive-webdav
 
 ## 升级提示
-- 适配Rust版本：v1.10.1
+- 适配Rust最新编译版本v1.10.1
+- 为了兼容性，提取json字符串用awk命令
+- 暂时未发现Rust版被QNAP误识别为恶意软件
 
 > ARM版因为权限问题，安装过后要手动给安装目录0777权限，可以用winscp设置，也可以用PuTTy来执行代码：<br>
 >```chmod -Rf 777 $(/sbin/getcfg aliyunpan Install_Path -f /etc/config/qpkg.conf)/*.*```
