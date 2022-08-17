@@ -6,25 +6,25 @@ QPKG_ROOT=`/sbin/getcfg $QPKG_NAME Install_Path -f ${CONF}`
 sleep 5
 while true ; do
 
-		pid=$(pidof "aliyundrive-webdav")
-		change=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.change')
-		send=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.send')
-		bark=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | jq -r '.bark')
+pid=$(pidof "aliyundrive-webdav")
+change=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | awk -F '[,]' '{print $9}' | awk -F '["]' '{print $4}')
+send=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | awk -F '[,]' '{print $8}' | awk -F '["]' '{print $4}')
+bark=$(cat $QPKG_ROOT/configs/aliyunpan-config.json | awk -F '[,]' '{print $7}' | awk -F '["]' '{print $4}')
 
   if [[ -n "$pid" ]] && [[ "$change" == "1" ]]; then
 			echo "killall aliyundrive-webdav..."	
 			killall -9 aliyundrive-webdav > /dev/null 2>&1
-			echo $(jq -c .change='"0"' $QPKG_ROOT/configs/aliyunpan-config.json)>$QPKG_ROOT/configs/aliyunpan-config.json
+			sed -i 's#"change":"1"#"change":"0"#g' $QPKG_ROOT/configs/aliyunpan-config.json
   fi
 
   if [[ "$send" == "0" ]] && [[ "$(grep -c "refresh token failed" $QPKG_ROOT/configs/log.txt)" == "1" ]]; then
 			echo "send system Notification"
             /sbin/log_tool -N "阿里云盘" -G "Check token" -t1 -uSystem -p127.0.0.1 -mlocalhost -a "[阿里云盘] 阿里云盘Refresh Token已过期，请更新！"
-            echo $(jq -c .send='"1"' $QPKG_ROOT/configs/aliyunpan-config.json)>$QPKG_ROOT/configs/aliyunpan-config.json
+			sed -i 's#"send":"0"#"send":"1"#g' $QPKG_ROOT/configs/aliyunpan-config.json
 			echo "" >$QPKG_ROOT/configs/log.txt
             if [[ -n "$bark" ]]; then
             echo "send Bark Notification"
-            curl -s -k "https://api.day.app/$bark/阿里云盘 Webdav/阿里云盘 Refresh Token 已过期，请更新！?icon=https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ico.jpg"
+			curl -s -k "https://api.day.app/$bark/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%20Webdav/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%20Refresh%20Token%20%E5%B7%B2%E8%BF%87%E6%9C%9F%EF%BC%8C%E8%AF%B7%E6%9B%B4%E6%96%B0%EF%BC%81%0A?icon=https://github.com/iranee/qnap-aliyunpan-webdav/raw/main/readme/ico.jpg&group=%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%20"
             fi
   fi
 

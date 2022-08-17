@@ -103,9 +103,9 @@ if ( isset($_POST['token']) )
 
 <b>阿里云盘 WebDAV - 设置面板</b><p>
 
-<div align="right">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="118" height="20" role="img"><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="118" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="55" height="20" fill="#555"/><rect x="55" width="63" height="20" fill="#007ec6"/><rect width="118" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text x="285" y="140" transform="scale(.1)" fill="#fff" textLength="450">本地版本</text><text x="855" y="140" transform="scale(.1)" fill="#fff" textLength="450"><?php system("cat ../version"); ?></text></g></svg>&nbsp;&nbsp;&nbsp;
-<a href="https://github.com/iranee/qnap-aliyunpan-webdav" target="_blank"><img src="https://img.shields.io/github/v/release/iranee/qnap-aliyunpan-webdav?color=2&label=%E5%9C%A8%E7%BA%BF%E7%89%88%E6%9C%AC"></a>&nbsp;&nbsp;&nbsp;</div><p>
+<div align="right"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="118" height="20" role="img"><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="118" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="55" height="20" fill="#555"/><rect x="55" width="63" height="20" fill="#f59400"/><rect width="118" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text x="285" y="140" transform="scale(.1)" fill="#fff" textLength="450">系统架构</text><text x="855" y="140" transform="scale(.1)" fill="#fff" textLength="450"><?php system("uname -m"); ?></text></g></svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="118" height="20" role="img"><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="118" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="55" height="20" fill="#555"/><rect x="55" width="63" height="20" fill="#007ec6"/><rect width="118" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text x="285" y="140" transform="scale(.1)" fill="#fff" textLength="450">本地版本</text><text x="855" y="140" transform="scale(.1)" fill="#fff" textLength="450"><?php system("cat ../version"); ?></text></g></svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://cheen.cn/954" target="_blank" title="更新日志"><img src="https://img.shields.io/github/v/release/iranee/qnap-aliyunpan-webdav?color=2&label=%E5%9C%A8%E7%BA%BF%E7%89%88%E6%9C%AC"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><p>
 
 <form id="aliyunpan_form" action="" method="post">
 <div id="main">    
@@ -157,7 +157,7 @@ if ( isset($_POST['token']) )
 
     var timeoutfn = function() { 
       if (check_aliyunpan_pid > 19) {
-        $("#spn_message").html("进程启动失败！请检查参数是否存在问题");
+        $("#spn_message").html("❌ 进程启动失败！请检查参数是否存在问题");
         return;
       }
       check_aliyunpan_pid++;
@@ -170,9 +170,9 @@ if ( isset($_POST['token']) )
         success: function(dataText, textStatus ){
           var data = jQuery.parseJSON(dataText);
           if(data["pid"]) {
-            $("#spn_message").html("进程运行中，PID：" + data["pid"] + " | 程序版本：" + data["ver"]);
+            $("#spn_message").html("✔️ 进程运行中，PID：" + data["pid"] + " | 编译版本：" + data["ver"]);
           } else {
-            $("#spn_message").html("等待进程检测中，次数：" + check_aliyunpan_pid);
+            $("#spn_message").html("❓ 等待进程检测中，次数：" + check_aliyunpan_pid);
             setTimeout(timeoutfn, 3000);
           }
         },
@@ -263,6 +263,8 @@ if ( isset($_POST['token']) )
             $this.removeClass("on").addClass("off");
         }
     });
+	
+document.onselectstart=function(){return false;};
 </script>
 </div>
 </html>
