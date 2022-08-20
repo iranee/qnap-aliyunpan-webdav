@@ -2,7 +2,7 @@
 ![Release](https://img.shields.io/github/v/release/iranee/qnap-aliyunpan-webdav?color=2&label=Releases)
 
 ## 介绍
-通过 Rust/Go 语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
+通过 Rust 语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
 
 * Rust 版开源：https://github.com/messense/aliyundrive-webdav
 * Go 版开源：`https://github.com/LinkLeong/go-aliyundrive-webdav`
@@ -12,6 +12,7 @@
 - 为了兼容性，提取json字符串用awk命令
 - 当输入正确的token后，系统会自动刷新并更新token，即使再次输入错误的token也可以正常运行，直至系统获取的token失效
 - 暂时未发现Rust版被QNAP误识别为恶意软件
+- 新增阿里云盘分身版S_开头，可同时登录2个账户
 
 > ARM版因为权限问题，安装过后要手动给安装目录0777权限，可以用winscp设置，也可以用PuTTy来执行代码：<br>
 >```chmod -Rf 777 $(/sbin/getcfg aliyunpan Install_Path -f /etc/config/qpkg.conf)/*.*```
