@@ -1,7 +1,7 @@
 # Aliyunpan Webdav for QNAP
 ![Release](https://img.shields.io/github/v/release/iranee/qnap-aliyunpan-webdav?color=2&label=Releases)
 
-## 已启用新插件qnap-alist-webdav已出，本插件暂时停更。
+## 已启用新插件 [qnap-alist-webdav](https://github.com/iranee/qnap-alist-webdav)，本插件暂时停更。
 
 ## 介绍
 通过 Rust 语言实现了阿里云盘的webdav协议，只需要简单的配置一下，就可以让阿里云盘变身为webdav协议的文件服务器。
